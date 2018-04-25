@@ -62,7 +62,7 @@ if __name__ == "__main__":
     elif "listAlbums" in form:
         musicinterface.listAlbums()    
     
-    elif "insertArtist" in form:
+    elif "insertArtist" in form and "name" in form:
         name = form["name"].value
         musicinterface.insertArtist(name)
         musicinterface.showInsertArtistForm()    
