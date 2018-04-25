@@ -107,10 +107,10 @@ class MusicDB:
         # Create a cursor object to execute queries and retrieve results
         else:
             #tuple to store parameters
-            params = (s, name)
+            params = (s+1, name)
 
             # Run a query: provide any SQL in a string
-            cur.execute("INSERT INTO Artist (ArtistId, Name) VALUES (?, ?)", params)
+            cur.execute("INSERT INTO Artist (ArtistId, Name) VALUES %s" % (params,))
 
             #commit
             self.conn.commit()

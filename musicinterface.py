@@ -109,7 +109,7 @@ def insertArtist(name):
         <br>
         <a href="?">Return Home</a>
         
-        """, name)         
+        """ % name)         
 
 def searchArtist(name):    
     # Notice that there is no input() here
