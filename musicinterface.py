@@ -144,6 +144,7 @@ def showDefaultPage():
     <li><a href="?listArtists=1">List all Artists</a>
     <li><a href="?searchArtist=1">Search for an Artist</a>
     <li><a href="?listAlbums=1">List all Albums</a>
+    <li><a href="?insertArtist=1">Insert an Artist</a>
     </ul>
     
     <p>    
