@@ -59,8 +59,8 @@ if __name__ == "__main__":
     elif "listArtists" in form:
         musicinterface.listArtists() 
     
-    # elif "listAlbums" in form:
-    #     musicinterface.listAlbums()    
+    elif "listAlbums" in form:
+        musicinterface.listAlbums()    
         
     # search for a name, and we have the name
     elif "searchArtist" in form and "name" in form:
