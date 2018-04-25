@@ -111,6 +111,22 @@ def insertArtist(name):
         
         """ % name)         
 
+def updateArtist(name_old, name_new):
+    result = dbobj.updateArtist(name_old, name_new)
+
+    if result == 0:
+            print("<h2>%s does not exist in the database</h2>" % name_old)
+    
+    else: 
+        
+        print("""
+
+        <h2>%s has been changed to %s</h2>
+        <br>
+        <a href="?">Return Home</a>
+        
+        """ % (name_old, name_new))
+
 def searchArtist(name):    
     # Notice that there is no input() here
     # We must get input from CGI forms and pass in paramters
@@ -145,6 +161,7 @@ def showDefaultPage():
     <li><a href="?searchArtist=1">Search for an Artist</a>
     <li><a href="?listAlbums=1">List all Albums</a>
     <li><a href="?insertArtist=1">Insert an Artist</a>
+    <li><a href="?updateArtist=1">Update an Artist Name</a>
     </ul>
     
     <p>    
@@ -198,3 +215,25 @@ def showInsertArtistForm():
     </FORM>
     """)
     
+def showUpdateArtistForm():
+
+    print("""
+    <h2>Update A Profile</h2>
+    <p>
+    <FORM METHOD="POST">
+    <table>
+        <tr>
+            <td>Old Name</td>
+            <td><INPUT TYPE="TEXT" NAME="name_old" VALUE=""></td>
+
+            <td>New Name</td>
+            <td><INPUT TYPE="TEXT" NAME="name_new" VALUE=""></td>
+        
+            <td></td>
+            <td>
+            <input type="submit" name="updateProfile" value="Update!">
+            </td>
+        </tr>
+    </table>
+    </FORM>
+    """)

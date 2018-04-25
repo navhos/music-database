@@ -67,7 +67,15 @@ if __name__ == "__main__":
         musicinterface.insertArtist(name)    
 
     elif "insertArtist" in form:
-        musicinterface.showSearchArtistForm()
+        musicinterface.showInsertArtistForm()
+
+    elif "updateArtist" in form and "name_old" in form and "name_new" in form:
+        name_old = form["name_old"].value
+        name_new = form["name_new"].value
+        musicinterface.updateArtist(name_old, name_new)    
+
+    elif "updateArtist" in form:
+        musicinterface.showUpdateArtistForm()
 
     # search for a name, and we have the name
     elif "searchArtist" in form and "name" in form:

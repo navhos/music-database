@@ -116,6 +116,29 @@ class MusicDB:
             self.conn.commit()
 
             return 1
+
+    def updateArtist(self, name_old, name_new):       
+        # Create a cursor object to execute queries and retrieve results
+        cur = self.conn.cursor()
+        
+        #check if name exists
+        l = len(self.checkArtist(cur, name_old))
+
+        #if artist name does not exist
+        if(l == 0):
+            return 0
+        #if artist name exists
+        else:
+            #tuple to store parameters
+            params = (name_old, name_new)
+
+            # Run a query: provide any SQL in a string
+            cur.execute("UPDATE Artist SET Name = '%s' WHERE Name like '%s'" % params)
+
+            #commit
+            self.conn.commit()
+
+            return 1
         
       
         
