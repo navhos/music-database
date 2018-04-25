@@ -103,13 +103,13 @@ def insertArtist(name):
         # Print the results, in this case a list of tuples
         dbobj.insertArtist(name)
         
-    print("""
+        print("""
 
-    <h2>%s has been added to the database</h2>
-    <br>
-    <a href="?">Return Home</a>
-    
-    """, name)         
+        <h2>%s has been added to the database</h2>
+        <br>
+        <a href="?">Return Home</a>
+        
+        """, name)         
 
 def searchArtist(name):    
     # Notice that there is no input() here
