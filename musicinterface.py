@@ -71,7 +71,7 @@ def listArtists():
 def listAlbums():
     results = dbobj.listAlbums()
     
-    print("<h1>All artists</h1><p>")
+    print("<h1>All albums</h1><p>")
     
     print("""
     <table border=1>
