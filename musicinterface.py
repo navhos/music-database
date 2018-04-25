@@ -75,7 +75,7 @@ def listAlbums():
     
     print("""
     <table border=1>
-    <tr><th>ArtistID</th><td>Album Name</td></th>
+    <tr><th>AlbumID</th><td>Album Name</td></th>
     """)
     for row in results:
         id, name = row       
