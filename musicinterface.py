@@ -68,30 +68,30 @@ def listArtists():
     
     """)     
         
-def listAlbums():
-    results = dbobj.listAlbums()
+# def listAlbums():
+#     results = dbobj.listAlbums()
     
-    print("<h1>All albums</h1><p>")
+#     print("<h1>All albums</h1><p>")
     
-    print("""
-    <table border=1>
-    <tr><th>ArtistID</th><td>Album Name</td></th>
-    """)
-    for row in results:
-        id, name = row       
-        #print("%d %s" % (id, str(name)))
-        print("<tr><td>%d</td><td>%s</td></tr>" % (id, name))
-        print()
+#     print("""
+#     <table border=1>
+#     <tr><th>ArtistID</th><td>Album Name</td></th>
+#     """)
+#     for row in results:
+#         id, name = row       
+#         #print("%d %s" % (id, str(name)))
+#         print("<tr><td>%d</td><td>%s</td></tr>" % (id, name))
+#         print()
         
         
-    print("""
+#     print("""
     
-    </table>
+#     </table>
     
-    <br>
-    <a href="?">Return Home</a>
+#     <br>
+#     <a href="?">Return Home</a>
     
-    """)
+#     """)
 
 def searchArtist(name):    
     # Notice that there is no input() here

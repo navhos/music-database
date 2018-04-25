@@ -38,18 +38,18 @@ class MusicDB:
         # Return the results, in this case a list of tuples
         return(result)
     
-    def listAlbums(self):    
-        # Create a cursor object to execute queries and retrieve results
-        cur = self.conn.cursor();        
+    # def listAlbums(self):    
+    #     # Create a cursor object to execute queries and retrieve results
+    #     cur = self.conn.cursor();        
         
-        # Run a query: provide any SQL in a string
-        cur.execute("SELECT AlbumId, Title FROM Album")
+    #     # Run a query: provide any SQL in a string
+    #     cur.execute("SELECT AlbumId, Title FROM Album")
         
-        # Fetch all the results
-        result = cur.fetchall()
+    #     # Fetch all the results
+    #     result = cur.fetchall()
         
-        # Return the results, in this case a list of tuples
-        return(result)
+    #     # Return the results, in this case a list of tuples
+    #     return(result)
  
         
     def searchArtist(self, name):    
