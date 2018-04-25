@@ -69,15 +69,13 @@ class MusicDB:
         # Return the results, in this case a list of tuples
         return(result)
 
-    def checkArtist(self, name):       
-        cur = self.conn.cursor();        
-        
+    def checkArtist(self, cur, name):              
         # parameters need to be in a python tuple
         # this is how to create a tuple with a single value
         params = (name,)
         
         # Run a query: provide any SQL in a string
-        cur.execute("SELECT ArtistId, Name FROM artists WHERE Name like ?" ,params)
+        cur.execute("SELECT ArtistId, Name FROM Artist WHERE Name like %s" ,params)
 
         #Fetch all the results
         result = cur.fetchall()
@@ -85,11 +83,9 @@ class MusicDB:
         #Return the results, in this case a list of tuples
         return(result)
 
-    def listArtists(self):
-        cur = self.conn.cursor();
-        
+    def listArtists(self, cur):
         # Run a query: provide any SQL in a string
-        cur.execute("SELECT * FROM artists")
+        cur.execute("SELECT * FROM Artist")
 
         #Fetch all the results
         result = cur.fetchall()
@@ -97,25 +93,24 @@ class MusicDB:
         return result
 
     def insertArtist(self, name):       
-        result = self.checkArtist(name)
+        cur = self.conn.cursor()
+        result = self.checkArtist(cur, name)
 
         #no of artists with the name
         l = len(result)
 
         #no of artists
-        s = len(self.listArtists())
+        s = len(self.listArtists(cur))  
 
         if(l >> 0):
             return 0
         # Create a cursor object to execute queries and retrieve results
         else:
-            cur = self.conn.cursor()
-        
             #tuple to store parameters
             params = (s, name)
 
             # Run a query: provide any SQL in a string
-            cur.execute("INSERT INTO artists (ArtistId, Name) VALUES (?, ?)", params)
+            cur.execute("INSERT INTO Artist (ArtistId, Name) VALUES (?, ?)", params)
 
             #commit
             self.conn.commit()
