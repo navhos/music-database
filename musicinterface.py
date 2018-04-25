@@ -93,7 +93,7 @@ def listAlbums():
     
     """)
 
-def insertArtist(name)
+def insertArtist(name):
     result = dbobj.searchArtist(name)
 
     if len(result) >> 0:
@@ -101,23 +101,21 @@ def insertArtist(name)
     
     else: 
         # Print the results, in this case a list of tuples
-        # This is ugly and unformatted...
         dbobj.insertArtist(name)
         
     print("""
 
-    
+    <h2>%s has been added to the database</h2>
     <br>
     <a href="?">Return Home</a>
     
-    """)         
+    """, name)         
 
 def searchArtist(name):    
     # Notice that there is no input() here
     # We must get input from CGI forms and pass in paramters
     result = dbobj.searchArtist(name)
-    
-    
+       
     if len(result) == 0:
         print("<h2>%s not found in the database</h2>" % name)
     
@@ -164,6 +162,31 @@ def showSearchArtistForm():
     
     <!-- Hidden form field used to keep track of state (what we are doing) -->
     <input type="hidden" name="searchArtist" value="1">
+    <table>
+        <tr>
+            <td>Artist Name</td>
+            <td><INPUT TYPE="TEXT" NAME="name" VALUE=""></td>
+        </tr>
+        <tr><td>
+            
+            <input type="submit" name="addProfile" value="Add!">
+            </td>
+        </tr>
+    </table>
+    </FORM>
+    """)
+
+##################################################################################
+def showInsertArtistForm():
+
+    print("""
+    <h2>Add a Profile</h2>
+    <p>
+    <!-- without action="someurl", the form will run the script that generated the page -->    
+    <FORM METHOD="POST">
+    
+    <!-- Hidden form field used to keep track of state (what we are doing) -->
+    <input type="hidden" name="insertArtist" value="1">
     <table>
         <tr>
             <td>Artist Name</td>
