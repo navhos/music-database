@@ -93,6 +93,25 @@ def listAlbums():
     
     """)
 
+def insertArtist(name)
+    result = dbobj.searchArtist(name)
+
+    if len(result) >> 0:
+            print("<h2>%s already exists in the database</h2>" % name)
+    
+    else: 
+        # Print the results, in this case a list of tuples
+        # This is ugly and unformatted...
+        dbobj.insertArtist(name)
+        
+    print("""
+
+    
+    <br>
+    <a href="?">Return Home</a>
+    
+    """)         
+
 def searchArtist(name):    
     # Notice that there is no input() here
     # We must get input from CGI forms and pass in paramters
