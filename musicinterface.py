@@ -181,20 +181,16 @@ def showSearchArtistForm():
 def showInsertArtistForm():
 
     print("""
-    <h2>Add a Profile</h2>
+    <h2>Add A Profile</h2>
     <p>
-    <!-- without action="someurl", the form will run the script that generated the page -->    
     <FORM METHOD="POST">
-    
-    <!-- Hidden form field used to keep track of state (what we are doing) -->
-    <input type="hidden" name="insertArtist" value="1">
     <table>
         <tr>
-            <td>Artist Name</td>
+            <td>Name</td>
             <td><INPUT TYPE="TEXT" NAME="name" VALUE=""></td>
-        </tr>
-        <tr><td>
-            
+        
+            <td></td>
+            <td>
             <input type="submit" name="addProfile" value="Add!">
             </td>
         </tr>

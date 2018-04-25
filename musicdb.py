@@ -77,7 +77,7 @@ class MusicDB:
         params = (name,)
         
         # Run a query: provide any SQL in a string
-        cur.execute("SELECT ArtistID, Name FROM artists WHERE Name like ?" ,params)
+        cur.execute("SELECT ArtistId, Name FROM artists WHERE Name like ?" ,params)
 
         #Fetch all the results
         result = cur.fetchall()
@@ -99,10 +99,13 @@ class MusicDB:
     def insertArtist(self, name):       
         result = self.checkArtist(name)
 
+        #no of artists with the name
         l = len(result)
+
+        #no of artists
         s = len(self.listArtists())
 
-        if(l>0):
+        if(l >> 0):
             return 0
         # Create a cursor object to execute queries and retrieve results
         else:
